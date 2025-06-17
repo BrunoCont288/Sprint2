@@ -1,0 +1,14 @@
+# Arquivos de Build do Maven
+target/
+pom.xml.bak
+
+# Arquivos de banco de dados H2
+*.mv.db
+*.trace.db
+
+# Arquivos de log
+*.log
+
+# Arquivos da IDE IntelliJ
+.idea/
+*.iml
