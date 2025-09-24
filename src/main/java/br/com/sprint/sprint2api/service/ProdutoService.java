@@ -14,21 +14,21 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public Produto salvar(Produto produto) {
-        return produtoRepository.save(produto);
-    }
-
     public List<Produto> listarTodos() {
         return produtoRepository.findAll();
     }
 
     public Produto buscarPorId(Long id) {
         return produtoRepository.findById(id)
-                .orElseThrow(() -> new RecursoNaoEncontradoException("Produto não encontrado com ID: " + id));
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Produto não encontrado com o ID: " + id));
+    }
+
+    public Produto salvar(Produto produto) {
+        return produtoRepository.save(produto);
     }
 
     public void deletar(Long id) {
-        Produto produto = buscarPorId(id); // Reutiliza a busca para garantir que o produto existe
+        Produto produto = buscarPorId(id); // Reutiliza a busca para garantir que o produto existe antes de deletar
         produtoRepository.delete(produto);
     }
 }
